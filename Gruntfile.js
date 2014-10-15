@@ -364,6 +364,21 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
+    var nodemon = require('nodemon');
+
+    nodemon({
+      script: './server/server',
+      ext: 'js json'
+    });
+
+    nodemon.on('start', function () {
+      console.log('App has started');
+    }).on('quit', function () {
+      console.log('App has quit');
+    }).on('restart', function (files) {
+      console.log('App restarted due to: ', files);
+    });
+
     grunt.task.run([
       'clean:server',
       'concurrent:server',
@@ -388,7 +403,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
+    //'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
