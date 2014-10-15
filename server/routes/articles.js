@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var Articles = require('../db').ARTICLES;
 
-/* GET users listing. */
+/* GET listing. */
 router.get('/', function(req, res) {
-  res.send('respond with a resource');
+  Articles.find(function(err, data) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.json(data);
+        }
+    });
 });
 
 module.exports = router;
