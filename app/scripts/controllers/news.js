@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name articleApp.controller:AboutCtrl
+ * @name articleApp.controller:MainCtrl
  * @description
- * # AboutCtrl
+ * # MainCtrl
  * Controller of the articleApp
  */
-angular.module('articleApp')
-  .controller('AboutCtrl', function ($scope) {
+angular.module('articleControllers')
+  .controller('NewsCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
