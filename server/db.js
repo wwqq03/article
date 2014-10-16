@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 
-mongoose.connect("mongodb://article_reader:article_reader@ds063879.mongolab.com:63879/heroku_app29725784");
+var articleDB = mongoose.createConnection('mongodb://article_reader:article_reader@ds063879.mongolab.com:63879/heroku_app29725784');
+//db for users and hendelse
+var DB = mongoose.createConnection('mongodb://localhost:27017/sol');
 
-var Articles = mongoose.model('articles', {
+var Articles = articleDB.model('articles', {
     _id: String,
     content: String,
     createTime: Date,
@@ -13,4 +15,11 @@ var Articles = mongoose.model('articles', {
     updateTime: Date
 });
 
+var Users = DB.model('users', {
+    username: String,
+    password: String,
+    role: String
+})
+
 module.exports.ARTICLES = Articles;
+module.exports.USERS = Users;
