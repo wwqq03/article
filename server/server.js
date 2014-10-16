@@ -34,6 +34,21 @@ app.use('/api', expressJwt({secret: SECRET}));
 app.use('/api/events', events);
 app.use('/api/articles', articles);
 
+/**
+ * CORS support.
+ */
+
+app.all('*', function(req, res, next){
+    if (!req.get('Origin')) return next();
+    // use "*" here to accept any origin
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', '*');
+    res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+    // res.set('Access-Control-Allow-Max-Age', 3600);
+    if ('OPTIONS' == req.method) return res.send(200);
+    next();
+});
+
 //Authenticate
 app.post('/auth', function (req, res) {
     //if is invalid, return 401
