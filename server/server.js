@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var auth = require('./routes/auth');
 var events = require('./routes/events');
 var articles = require('./routes/articles');
 
@@ -24,7 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/auth', auth);
 app.use('/api/events', events);
 app.use('/api/articles', articles);
 
