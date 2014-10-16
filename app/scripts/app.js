@@ -1,6 +1,7 @@
 'use strict';
 angular.module('articleControllers', []);
-var app = angular.module('articleApp', ['articleControllers','ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.bootstrap']);
+angular.module('articleServices', []);
+var app = angular.module('articleApp', ['articleServices', 'articleControllers','ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
 app.config(function ($routeProvider) {
   $routeProvider
