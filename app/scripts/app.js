@@ -4,6 +4,10 @@ var app = angular.module('articleApp', ['articleControllers','ngAnimate', 'ngCoo
 
 app.config(function ($routeProvider) {
   $routeProvider
+    .when('/', {
+      templateUrl: 'views/login.html',
+      controller: 'LoginCtrl'
+    })
     .when('/articles', {
       templateUrl: 'views/articles.html',
       controller: 'ArticlesCtrl'
