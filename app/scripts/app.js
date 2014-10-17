@@ -5,7 +5,7 @@ var app = angular.module('articleApp', ['articleServices', 'articleControllers',
 
 app.config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/login', {
       templateUrl: 'views/login.html',
       controller: 'LoginCtrl'
     })
