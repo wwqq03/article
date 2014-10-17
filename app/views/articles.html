@@ -1,1 +1,32 @@
-<p>This is the article view.</p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Artikler<span class="badge">{{articles.length}}</span></h2>
+    </div>
+    <div class="col-md-4" style="margin-top:25px;text-align:right">
+        <div>
+            <span class="add-on"><i class="glyphicon glyphicon-search"></i></span>
+            <input type="text" ng-model="searchKey" placeholder="Søk">
+        </div>
+    </div>
+    <div class="col-md-2" style="text-align:right;" ng-show="isAdmin">
+        <button type="button" class="btn btn-primary" ng-click="compose()" style="margin-top:18px;">Slå sammen</button>
+    </div>
+</div>
+<!-- <div class="jumbotron margin-bottom-small no-padding" ng-repeat="article in articles | limitTo: 50 | filter: searchKey">
+    <p ng-bind-html="article.content"></p>
+</div> -->
+<div class="row">
+    <div class="col-sm-6 col-md-3" ng-repeat="article in articles | filter: searchKey">
+        <div class="thumbnail" style="height:300px;width:200px">
+            <div style="height:200px;width:200px">
+                <img src="{{article.imgUrl}}" alt="..." height=200 width=190>
+            </div>
+            <div class="caption" style="height:100px;width:200px">
+                <div  ng-show="isAdmin">
+                    <input type="checkbox"> Velg til å skape hendelse
+                </div>
+                <p><a href="{{article.link}}" target="_blank">{{article.content}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
