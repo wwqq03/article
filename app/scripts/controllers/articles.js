@@ -8,10 +8,15 @@
  * Controller of the articleApp
  */
 angular.module('articleControllers')
-  .controller('ArticlesCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+.controller('ArticlesCtrl', function ($scope, articlesSvc) {
+    articlesSvc.get()
+    .then(
+        function(data) {
+            $scope.articles = data;
+        },
+        function(error) {
+            //Handle error
+            console.log(error);
+        }
+    );
+});
