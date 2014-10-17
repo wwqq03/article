@@ -30,15 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api', expressJwt({secret: SECRET}));
-app.use('/api/events', events);
-app.use('/api/articles', articles);
-
 /**
  * CORS support.
  */
-
-app.all('*', function(req, res, next){
+var supportCORS = function(req, res, next){
     if (!req.get('Origin')) return next();
     // use "*" here to accept any origin
     res.set('Access-Control-Allow-Origin', '*');
@@ -47,7 +42,14 @@ app.all('*', function(req, res, next){
     // res.set('Access-Control-Allow-Max-Age', 3600);
     if ('OPTIONS' == req.method) return res.send(200);
     next();
-});
+};
+
+app.use('/api', supportCORS);
+app.use('/api', expressJwt({secret: SECRET}));
+app.use('/api/events', events);
+app.use('/api/articles', articles);
+
+app.all('*', supportCORS);
 
 //Authenticate
 app.post('/auth', function (req, res) {
