@@ -43,9 +43,9 @@ app.config(function ($routeProvider) {
       redirectTo: '/login'
     });
 }).
-run(function($rootScope, $location) {
+run(function($rootScope, $location, $window) {
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-    if(!$rootScope.user) {
+    if(!$window.sessionStorage.token) {
       // no logged user, redirect to /login
       if(next.templateUrl !== "views/login.html") {
         $location.path("/login");
