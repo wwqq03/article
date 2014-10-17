@@ -3,18 +3,20 @@
     <form name="loginForm" novalidate class="form-horizontal" onsubmit="return false;">
 
         <div class="form-group">
-            <label class="col-sm-4 control-label">Username</label>
+            <label class="col-sm-3 control-label">Username</label>
             <div class="col-sm-8">
                 <input type="input" ng-model="form.username" class="form-control" placeholder="Username" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-4 control-label">Password</label>
+            <label class="col-sm-3 control-label">Password</label>
             <div class="col-sm-8">
                 <input type="password" ng-model="form.password" class="form-control" placeholder="Password" required>
             </div>
         </div>
+
+        <div ng-show="error" class="red">{{error}}</div>
 
         <button class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="login()">Login</button>
     </form>
