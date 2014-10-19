@@ -63,6 +63,19 @@ angular.module('articleServices')
                 );
             }
             return defer.promise;
+        },
+
+        delete: function(event) {
+            var defer = $q.defer();
+            event.$delete(
+                function() {
+                    var index = _.indexOf(cache, event);
+                    cache.splice(index, 1);
+                    defer.resolve(null);
+                },
+                function(err) {defer.reject(err)}
+            );
+            return defer.promise;
         }
     };
 });

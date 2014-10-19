@@ -24,7 +24,7 @@
             <div class="col-md-4">
                 <carousel interval="5000">
                     <slide ng-repeat="slide in event.slides" active="slide.active">
-                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <img ng-src="{{slide.image}}" alt="..." style="margin:auto;">
                     </slide>
                 </carousel>
             </div>
@@ -34,6 +34,7 @@
                         <a href="{{articles[article].link}}" target="_blank">{{articles[article].content}}</a>
                     </li>
                 </ul>
+                <button type="button" class="btn btn-danger pull-right" ng-click="deleteEvent(event)" ng-show="isAdmin">Slett hendelsen</button>
             </div>
         </div>
     </accordion-group>

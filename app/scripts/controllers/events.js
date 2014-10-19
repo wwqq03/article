@@ -35,4 +35,8 @@ angular.module('articleControllers')
             );
         });
     };
+
+    $scope.deleteEvent = function(event) {
+        eventsSvc.delete(event);
+    };
 });
