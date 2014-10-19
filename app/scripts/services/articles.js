@@ -15,9 +15,17 @@ angular.module('articleServices')
 
     var getAllArticles = function() {
         d = $q.defer();
+
+        var strip = function(html) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        };
+
         var succ = function(result) {
             angular.forEach(result, function(article) {
                 if(!cache[article._id]) {
+                    article.content = strip(article.content);
                     cache.push(article);
                     //easier to look-up
                     cache[article._id] = article;

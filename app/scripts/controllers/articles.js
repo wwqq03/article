@@ -16,9 +16,6 @@ angular.module('articleControllers')
     articlesSvc.get()
     .then(
         function(data) {
-            for(var i = 0; i < data.length; i++) {
-                data[i].content = $scope.strip(data[i].content);
-            }
             $scope.articles = data;
             console.log($scope.articles);
         },
@@ -27,10 +24,4 @@ angular.module('articleControllers')
             console.log(error);
         }
     );
-
-    $scope.strip = function(html) {
-        var tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-    };
 });
