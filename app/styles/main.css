@@ -128,3 +128,17 @@ h1>.badge, h2>.badge, h3>.badge {
 .font-white {
   color: white;
 }
+
+.float-right-middle {
+  position: fixed;
+  right: 0;
+  top: 50%;
+}
+
+.float-button {
+  height: 100px;
+  width: 100px;
+  background-color: #990000;
+  border-style: none;
+  border-radius: 0;
+}
