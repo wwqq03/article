@@ -1,1 +1,40 @@
-<p>This is the event view.</p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Hendelser<span class="badge">{{events.length}}</span></h2>
+    </div>
+    <div class="col-md-6" style="margin-top:25px;text-align:right">
+        <div>
+            <span class="add-on"><i class="glyphicon glyphicon-search"></i></span>
+            <input type="text" ng-model="searchKey" placeholder="Søk">
+        </div>
+    </div>
+</div>
+
+<accordion close-others="true">
+    <accordion-group ng-repeat="event in events | filter: searchKey">
+        <accordion-heading>
+            <div style="cursor:pointer;" ng-click="loadSlides(event)">
+                {{event.name}}
+                <span class="pull-right">
+                    {{event.updateTime | date: 'medium'}}
+                </span>
+            </div>
+        </accordion-heading>
+        <div class="row">
+            <div class="col-md-4">
+                <carousel interval="1000">
+                    <slide ng-repeat="slide in event.slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                    </slide>
+                </carousel>
+            </div>
+            <div class="col-md-8">
+                <ul>
+                    <li ng-repeat="article in event.articles">
+                        <a href="{{articles[article].link}}" target="_blank">{{articles[article].content}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </accordion-group>
+</accordion>
