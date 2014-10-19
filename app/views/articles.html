@@ -38,7 +38,7 @@
         Navn: <input ng-model="eventName"></input>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-disable="!eventName" ng-click="ok()">OK</button>
+        <button class="btn btn-primary" ng-disable="!eventName" ng-click="ok()" ng-disabled="!eventName">OK</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </script>
