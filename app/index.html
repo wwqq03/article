@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="articleApp">
+  <body ng-app="articleApp" ng-controller="GlobalCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -37,7 +37,7 @@
               <li><a href="#/events"><span class="font-white">Hendelser</span></a></li>
           </div>
           <div class="nav navbar-nav navbar-right">
-              <button type="button" class="nav navbar-nav navbar-right btn" style="margin-right:10px">&nbsp&nbsp Logg ut</button>
+              <button type="button" class="nav navbar-nav navbar-right btn" style="margin-right:10px" ng-click="logout()">&nbsp&nbsp Logg ut</button>
           </div>
       </div>
     </nav>
@@ -88,6 +88,7 @@
         <script src="scripts/services/settings.js"></script>
         <script src="scripts/services/articles.js"></script>
         <script src="scripts/services/events.js"></script>
+        <script src="scripts/controllers/global.js"></script>
         <!-- endbuild -->
 </body>
 </html>
