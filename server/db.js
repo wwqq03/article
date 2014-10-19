@@ -19,7 +19,16 @@ var Users = DB.model('users', {
     username: String,
     password: String,
     role: String
-})
+});
+
+var Events = DB.model('events', {
+    _id: String,
+    name: String,
+    articles: Array,
+    createTime: Date,
+    updateTime: Date
+});
 
 module.exports.ARTICLES = Articles;
 module.exports.USERS = Users;
+module.exports.EVENTS = Events;
