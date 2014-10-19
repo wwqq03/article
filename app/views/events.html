@@ -11,7 +11,7 @@
 </div>
 
 <accordion close-others="true">
-    <accordion-group ng-repeat="event in events | filter: searchKey">
+    <accordion-group ng-repeat="event in events | filter: searchKey | orderBy: 'updateTime': true">
         <accordion-heading>
             <div style="cursor:pointer;" ng-click="loadSlides(event)">
                 {{event.name}}

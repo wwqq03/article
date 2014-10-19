@@ -15,7 +15,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6 col-md-3" ng-repeat="article in articles | filter: searchKey">
+    <div class="col-sm-6 col-md-3" ng-repeat="article in articles | filter: searchKey | orderBy: 'updateTime': true">
         <div class="thumbnail" style="height:300px;width:200px;background-color:#e6e6e6">
             <div style="height:200px;width:200px">
                 <img src="{{article.imgUrl}}" alt="..." height=200 width=190>
