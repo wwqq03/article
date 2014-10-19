@@ -13,6 +13,8 @@ angular.module('articleControllers')
     if(userRole === 'admin') {
         $scope.isAdmin = true;
     }
+    $scope.selectedArticles = [];
+
     articlesSvc.get()
     .then(
         function(data) {
@@ -24,4 +26,18 @@ angular.module('articleControllers')
             console.log(error);
         }
     );
+
+    $scope.changeSelectedArticles = function(articleId) {
+        if(!articleId) {
+            return;
+        }
+        var index = _.indexOf($scope.selectedArticles, articleId)
+        if(index > -1) {
+            //If the article is already in array, this is a unselect action
+            $scope.selectedArticles.splice(index, 1);
+        } else {
+            //article is not in array, this is a select action
+            $scope.selectedArticles.push(articleId);
+        }
+    }
 });

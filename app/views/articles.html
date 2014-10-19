@@ -23,7 +23,7 @@
             </div>
             <div class="caption" style="height:100px;width:200px">
                 <div  ng-show="isAdmin">
-                    <input type="checkbox"> Velg til å skape hendelse
+                    <input type="checkbox" ng-click="changeSelectedArticles(article._id)"> Velg til å skape hendelse
                 </div>
                 <p><a href="{{article.link}}" target="_blank">{{article.content}}</a></p>
             </div>
