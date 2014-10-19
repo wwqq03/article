@@ -1,7 +1,7 @@
 'use strict';
 angular.module('articleControllers', []);
 angular.module('articleServices', []);
-var app = angular.module('articleApp', ['articleServices', 'articleControllers','ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.bootstrap']);
+var app = angular.module('articleApp', ['articleServices', 'articleControllers', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
 app.factory('authInterceptor', function ($rootScope, $q, $window) {
   return {
