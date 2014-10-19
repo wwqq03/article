@@ -47,6 +47,9 @@ angular.module('articleServices')
             if(!event || !event.name || !event.articles) {
                 defer.reject('Invalid event object');
             } else {
+                if(cache.length < 1) {
+                    getAllEvents();
+                }
                 var item = new Event();
                 item.name = event.name;
                 item.articles = event.articles;
