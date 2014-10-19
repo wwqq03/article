@@ -16,11 +16,11 @@
 
 <div class="row">
     <div class="col-sm-6 col-md-3" ng-repeat="article in articles | filter: searchKey | orderBy: 'updateTime': true">
-        <div class="thumbnail" style="height:300px;width:200px;background-color:#e6e6e6">
+        <div class="thumbnail" style="height:320px;width:200px;background-color:#e6e6e6">
             <div style="height:200px;width:200px">
                 <img src="{{article.imgUrl}}" alt="..." height=200 width=190>
             </div>
-            <div class="caption" style="height:100px;width:200px">
+            <div class="caption" style="height:120px;width:200px">
                 <div  ng-show="isAdmin">
                     <input type="checkbox" ng-click="changeSelectedArticles(article._id)"> Velg til å skape hendelse
                 </div>
