@@ -22,7 +22,6 @@ var Users = DB.model('users', {
 });
 
 var Events = DB.model('events', {
-    _id: String,
     name: String,
     articles: Array,
     createTime: Date,
